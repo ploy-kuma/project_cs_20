@@ -1,65 +1,825 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!doctype html>
+<html lang="en">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.17.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.17.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.17.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.17.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.17.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <title>Checkout example · Bootstrap</title>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="form-validation.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <form action="/action_page.php">
+    <div class="container">
+
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <i class="fas fa-car-side fa-10x text-warning"></i>
+        <h2>ใบสั่งเจ้าพนักงานจราจรหรือพนักงานเจ้าหน้าที่</h2>
+      </div>
+
+      <!--div class="row"-->
+      <div class="col">
+        <form class="needs-validation">
+          <h3>เลขที่ใบสั่ง 1212312121</h3>
+          <p>Traffic Ticket </p>
+          <label for="drive">ด้วยผู้ขับขี่</label>
+          <div class="row mb-3">
+
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถจักยานยนต์
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถยนต์นั่งส่วนบุคคล
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถประเภทอื่น
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถขนส่ง
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">ยี่ห้อ</label>
+              <select name="cars" id="cars" class="form-control" required>
+                <option value="toyota">Toyota</option>
+                <option value="bonda">Honda</option>
+                <option value="audi">Audi</option>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="bmw">BMW</option>
+              </select>
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">จังหวัด</label>
+              <select name="cars" id="cars" class="form-control" required>
+                <option value="bangkok">กรุงเทพมหานคร</option>
+                <option value="Krabi">กระบี่</option>
+                <option value="Kanchanaburi">กาญจนบุรี</option>
+                <option value="Kalasin">กาฬสินธุ์</option>
+                <option value="Kamphaeng Phet">กำแพงเพชร</option>
+                <option value="Khon Kaen">ขอนแก่น</option>
+                <option value="Chanthaburi">จันทบุรี</option>
+                <option value="Chachoengsao">ฉะเชิงเทรา</option>
+                <option value="Chon Buri">ชลบุรี</option>
+                <option value="Chai Nat">ชัยนาท</option>
+                <option value="Chaiyaphum">ชัยภูมิ</option>
+                <option value="Chumphon">ชุมพร</option>
+                <option value="Chiang Rai">เชียงราย</option>
+                <option value="Chiang Mai">เชียงใหม่</option>
+                <option value="Trang">ตรัง</option>
+                <option value="Trat">ตราด</option>
+                <option value="Tak">ตาก</option>
+                <option value="Nakhon Nayok">นครนายก</option>
+                <option value="Nakhon Pathom">นครปฐม</option>
+                <option value="Nakhon Phanom">นครพนม</option>
+                <option value="Nakhon Ratchasima">นครราชสีมา</option>
+                <option value="Nakhon Si Thammarat">นครศรีธรรมราช</option>
+                <option value="Nakhon Sawan">นครสวรรค์</option>
+                <option value="Nonthaburi">นนทบุรี</option>
+                <option value="Narathiwat">นราธิวาส</option>
+                <option value="Nan"> น่าน</option>
+                <option value="Nong Khai">หนองคาย</option>
+                <option value="Nong Bua Lam Phu"> หนองบัวลำภู</option>
+                <option value="Buri Ram">บุรีรัมย์</option>
+                <option value="Bueng Kan">บึงกาฬ</option>
+                <option value="Pathum Thani">ปทุมธานี</option>
+                <option value="Prachuap Khiri Khan">ประจวบคีรีขันธ์</option>
+                <option value="Prachin Buri">ปราจีนบุรี</option>
+                <option value="Pattani">ปัตตานี</option>
+                <option value="Phra Nakhon Si Ayutthaya">พระนครศรีอยุธยา</option>
+                <option value="Phangnga"> พังงา</option>
+                <option value="Phatthalung">พัทลุง</option>
+                <option value="Phichit"> พิจิตร</option>
+                <option value="Phitsanulok	">พิษณุโลก</option>
+                <option value="Phetchaburi">เพชรบุรี</option>
+                <option value="Phetchabun">เพชรบูรณ์</option>
+                <option value="Phrae">แพร่</option>
+                <option value="Phayao">พะเยา</option>
+                <option value="Phuket">ภูเก็ต</option>
+                <option value="Maha Sarakham">มหาสารคาม</option>
+                <option value="Mae Hong Son">แม่ฮ่องสอน</option>
+                <option value="Mukdahan">มุกดาหาร</option>
+                <option value="Yala">ยะลา</option>
+                <option value="Yasothon">ยโสธร</option>
+                <option value="Roi Et">ร้อยเอ็ด</option>
+                <option value="Ranong">ระนอง</option>
+                <option value="Rayong">ระยอง</option>
+                <option value="Ratchaburi">ราชบุรี</option>
+                <option value="Lop Buri">ลพบุรี</option>
+                <option value="Lampang">ลำปาง</option>
+                <option value="Lamphun">ลำพูน</option>
+                <option value="Loei">เลย</option>
+                <option value="Si Sa Ket">ศรีสะเกษ</option>
+                <option value="Sakon Nakhon">สกลนคร</option>
+                <option value="Songkhla">สงขลา</option>
+                <option value="Satun">สตูล</option>
+                <option value="Samut Prakan">สมุทรปราการ</option>
+                <option value="Samut Songkhram">สมุทรสงคราม</option>
+                <option value="Samut Sakhon">สมุทรสาคร</option>
+                <option value="Sa Kaeo">สระแก้ว</option>
+                <option value="Saraburi">สระบุรี</option>
+                <option value="Sing Buri">สิงห์บุรี</option>
+                <option value="Sukhothai">สุโขทัย</option>
+                <option value="Suphan Buri">สุพรรณบุรี</option>
+                <option value="Surat Thani">สุราษฎร์ธานี</option>
+                <option value="Surin">สุรินทร์</option>
+                <option value="Ang Thong">อ่างทอง</option>
+                <option value="Udon Thani">อุดรธานี</option>
+                <option value="Uthai Thani">อุทัยธานี</option>
+                <option value="Uttaradit">อุตรดิตถ์</option>
+                <option value="Ubon Ratchathani">อุบลราชธานี</option>
+                <option value="Amnat Charoen">อำนาจเจริญ</option>
+
+              </select>
+            </div>
+          </div>
+          <h3>หมายเลขทะเบียนรถ</h3>
+          <p>License Plate</p>
+
+          <!--div class="row">
+          <div class="col">
+            <label for="country">เลข</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">0</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="state">อักษร</label>
+            <select class="custom-select d-block w-100" id="state" required>
+              <option value="">ก</option>
+              <option value="">ข</option>
+              <option value="">ค</option>
+              <option value="">ง</option>
+              <option value="">จ</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="state">อักษร</label>
+            <select class="custom-select d-block w-100" id="state" required>
+              <option value="">ก</option>
+              <option value="">ข</option>
+              <option value="">ค</option>
+              <option value="">ง</option>
+              <option value="">จ</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="country">เลข</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">0</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="country">เลข</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">0</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="country">เลข</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">0</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="col">
+            <label for="country">เลข</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">0</option>
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
+            </select>
+            <div class="invalid-feedback"></div>
+          </div>
+        </div-->
+
+          <label for="license">ป้ายทะเบียนสี</label>
+          <div class="row mb-3">
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ขาว
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />เหลือง
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />เขียว
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />แดง
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ฟ้า
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />อื่นๆ
+              <input class="form-control" type="text" placeholder="อื่นๆ">
+            </div>
+
+          </div>
+          <h3>กระทำผิดฐาน/Committing the follfwing offenses</h3>
+          <h5>1.ขับรถ</h5>
+          <div class="row mb-3">
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ฝ่าฝืนสัญญาณไฟจราจรสีแดง
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ฝ่าฝืนเครื่องหมายบนพื้นทาง
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ฝ่าฝืนเครื่องหมายจราจรห้าม
+              <input class="form-control" type="text" placeholder="ฝ่าฝืนเครื่องหมายจราจรห้าม...">
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ในลักษณะกีดขวางการจราจร
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ไม่ใกล้ขอบทางเดินรถด้านซ้าย
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />แซงเมื่อเข้าที่คับขัน
+            </div>
+          </div>
+          <h5>2.หยุดรถ</h5>
+          <div class="row mb-3">
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ในลักษณะกีดขวางการจราจร
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ในเขตห้ามหยุด
+            </div>
+            <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รอสัญญาณล้ำแนว
+            </div>
+          </div>
+          <h5>3.จอดรถไว้</h5>
+          <div class="row mb-3">
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ในลักษณะกีดขวางการจราจร
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />บนทางเท้า
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ในเขตห้ามจอด
+
+              <input class="form-control" type="text" placeholder="ในเขตห้ามจอด...">
+
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ไม่ชิดขอบทางด้านซ้าย
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ไม่นานชิดขอบทาง
+            </div>
+            <div class="col-md-6"><input type="checkbox" name="drive" id="drive" required />ซ้อนคัน
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="formGroupExampleInput">อื่นๆ</label>
+              <input type="text" class="form-control" placeholder="">
+            </div>
+          </div>
+          <!--div class="mb-3">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              Your username is required.
+            </div>
+          </div>
+        </div!-->
+          <h5>เหตุเกิดที่</h5>
+          <div class="row">
+            <p>ตรอก/ซอย</p>
+            <div class="col">
+              <input type="text" class="form-control" id="address" placeholder="ตรอก/ซอย" required>
+            </div>
+            <p>ถนน</p>
+            <div class="col">
+              <input type="text" class="form-control" id="address" placeholder="ถนน" required>
+            </div>
+            <p>ตำบล/แขวง</p>
+            <div class="col">
+              <input type="text" class="form-control" id="address" placeholder="ตำบล/แขวง" required>
+            </div>
+
+          </div>
+          <br>
+          <form>
+            <div class="row">
+              <p>จังหวัด</p>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="จังหวัด" required>
+              </div>
+              <p>อำเภอ</p>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="อำเภอ" required>
+              </div>
+              <p>รหัสไปรษณีย์</p>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="รหัสไปรษณีย์" required>
+              </div>
+            </div>
+          </form>
+      </div>
+      <!--div class="row">
+      <div class="col">
+        <label for="firstName">เมื่อวันที่</label>
+        <select name="cars" id="cars" class="form-control" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select>
+        <div class="invalid-feedback"></div>
+      </div>
+      <div class="col">
+        <label for="firstName">เดือน</label>
+        <select name="cars" id="cars" class="form-control" required>
+          <option value="January">มกราคม</option>
+          <option value="February">กุมภาพันธ์</option>
+          <option value="March">มีนาคม</option>
+          <option value="April">เมษายน</option>
+          <option value="May">พฤษภาคม</option>
+          <option value="June">มิถุนายน</option>
+          <option value="July">กรกฎาคม</option>
+          <option value="August ">สิงหาคม</option>
+          <option value="September">กันยายน</option>
+          <option value="October">ตุลาคม</option>
+          <option value="November">พฤศจิกายน</option>
+          <option value="December">ธันวาคม</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="firstName">พ.ศ.</label>
+        <select name="cars" id="cars" class="form-control" required>
+          <option value="2020">2020</option>
+          <option value="2019">2019</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="firstName">เวลา</label>
+        <select name="cars" id="cars" class="form-control" required>
+          <option value="00">00</option>
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="firstName">.</label>
+        <select name="cars" id="cars" class="form-control" required>
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+          <option value="32">32</option>
+          <option value="33">33</option>
+          <option value="34">34</option>
+          <option value="35">35</option>
+          <option value="36">36</option>
+          <option value="37">37</option>
+          <option value="38">38</option>
+          <option value="39">39</option>
+          <option value="40">40</option>
+          <option value="41">41</option>
+          <option value="42">42</option>
+          <option value="43">43</option>
+          <option value="44">44</option>
+          <option value="45">45</option>
+          <option value="46">46</option>
+          <option value="47">47</option>
+          <option value="48">48</option>
+          <option value="49">49</option>
+          <option value="50">50</option>
+          <option value="51">51</option>
+          <option value="52">52</option>
+          <option value="53">53</option>
+          <option value="54">54</option>
+          <option value="55">55</option>
+          <option value="56">56</option>
+          <option value="57">57</option>
+          <option value="58">58</option>
+          <option value="59">59</option>
+        </select>
+      </div>
+      <label for="firstName">น.</label>
+    </div-->
+      <div class="row">
+        <div class="col-6">
+          <form action="/action_page.php">
+            <label for="birthday">เมื่อวันที่</label>
+            <input type="date" id="day" name="day" class="form-control">
+          </form>
+        </div>
+        <div class="col-6">
+          <form action="/action_page.php">
+            <label for="appt">เวลา</label>
+            <input type="time" id="appt" name="appt" class="form-control">
+          </form>
+        </div>
+      </div>
+      <br>
+      <h3>ให้ผู้ขับขี่หรือเจ้าของงรถหรือผู้ครอบครองรถไปชำระค่าปรับตามข้อกำหนดสำนักงานตำราจแห่งชาติ</h3>
+      <br>
+      <div class="row">
+        <p>จำนวนเงิน</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="จำนวนเงิน" required>
+          <div class="invalid-feedback ">
+            Please select a valid country.
+          </div>
+        </div>
+        <p>ต่อพนักงานสอบสวน ณ สถานีตำรวจ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="สถานีตำรวจ" required>
+          <div class="invalid-feedback ">
+            Please select a valid country.
+          </div>
+        </div>
+      </div>
+      <div class="f1 row">
+        <p>***ภายใน7วัน</p>
+      </div>
+      <br>
+      <h5>ลงชื่อผู้ให้ออกใบสั่ง</h5>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <p>ยศ</p>
+            <input type="text" class="form-control" placeholder="ยศ" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <p>ชื่อ</p>
+            <input type="text" class="form-control" placeholder="ชื่อ" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <p>นามสกุล</p>
+            <input type="text" class="form-control" placeholder="นามสกุล" required>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="drive" id="drive" required />พนังงานจราจร
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="radio" name="drive" id="drive" required />พลังงานเจ้าหน้าที่
+        </div>
+      </div>
+      <div class="col-3">
+        <label for="formGroupExampleInput">รหัส</label>
+        <input type="text" class="form-control" placeholder="รหัส" required>
+      </div>
+
+      <div class="py-5 text-center">
+        <h2>ใบรับแทนใบอนุญาตขับขี่</h2>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>
+            ชื่อผู้ขับขี่
+          </p>
+          <input type="text" class="form-control" placeholder="ชื่อผู้ขับขี่" required>
+        </div>
+        <div class="col">
+          <p>
+            เลขประจำตัวประชาชน
+          </p>
+          <input type="text" class="form-control" placeholder="เลขประจำตัวประชาชน" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>
+            ใบอนุญาติขับขี่เลขที่/ฉบับที่
+          </p>
+          <input type="text" class="form-control" placeholder="ใบอนุญาติขับขี่เลขที่/ฉบับที่" required>
+        </div>
+        <div class="col">
+          <form action="/action_page.php">
+            <label for="birthday">วันอนุญาติ</label>
+            <input type="date" id="day" name="day" class="form-control">
+          </form>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <p>ออกให้โดยนายทะเบียน</p>
+        </div>
+        <div class="col"><input type="radio" name="drive" id="drive" required />กรุงเทพมหานคร
+          <input type="text" class="form-control" placeholder="สาขา" required>
+        </div>
+        <div class="col"><input type="radio" name="drive" id="drive" required />จังหวัด
+          <input type="text" class="form-control" placeholder="สาขา" required>
+        </div>
+      </div>
+
+      <label for="license">ใบขับขี่</label>
+      <div class="row mb-3">
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถจักยานยนต์
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถสามล้อ
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถยนต์
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถขนส่ง
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />รถอื่นๆ
+          <input type="text" class="form-control" placeholder="รถอื่นๆ" required>
+        </div>
+      </div>
+
+
+      <label for="license">ชนิด</label>
+      <div class="row mb-3">
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ชั่วคราว
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ตลอดชีพ
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />สาธารณะ
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />บุคคล ชนิดที่
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ทุกประเภท ชนิดที่
+        </div>
+        <div class="col-md-3"><input type="radio" name="drive" id="drive" required />ระหว่างประเทศ
+        </div>
+      </div>
+
+      <div class="row">
+        <p>ลงชื่อ</p>
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="ลงชื่อ" required>
+        </div>
+        <p>ผู้ออกใบสั่ง</p>
+      </div>
+      <div class="row">
+        <p>ยศ</p>
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="ยศ" required>
+        </div>
+        <p>ชื่อ</p>
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="ชื่อ" required>
+        </div>
+        <p>ชื่อสกุล</p>
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="ชื่อสกุล" required>
+        </div>
+      </div>
+      <div class="row">
+        <p>รหัส</p>
+        <div class="col-3">
+          <input type="text" class="form-control" placeholder="รหัส" required>
+        </div>
+      </div>
+      <div class="py-5 text-center">
+        <h3>ใบสั่งเจ้าพนักงานจราจรหรือพนักงานเจ้าหน้าที่</h3>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>ชื่อผู้ขับขี่</p>
+          <input type="text" class="form-control" placeholder="ชื่อผู้ขับขี่" required>
+        </div>
+        <div class="col">
+          <p>ที่อยู่</p>
+          <input type="text" class="form-control" placeholder="ที่อยู่" required>
+        </div>
+      </div>
+      <div class="row">
+        <p>ข้อหา</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ข้อหา" required>
+        </div>
+        <p>ความเร็วที่กฎหมายกำหนด</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ความเร็วที่กฎหมายกำหนด" required>
+        </div>
+        <p>กม./ชม. </p>
+        <p>ความเร็วที่ตรวจจับ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ความเร็วที่ตรวจจับ" required>
+        </div>
+        <p>กม./ชม.</p>
+      </div>
+      <div class="row">
+        <p>ช่องทางเดินรถที่</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ช่องทางเดินรถที่" required>
+        </div>
+        <p>หมายเลขทะเบียนรถ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="หมายเลขทะเบียนรถ" required>
+        </div>
+      </div>
+
+      <h3>ผู้ออกใบสั่ง</h3>
+      <div class="row">
+        <p>ชื่อ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ชื่อ" required>
+        </div>
+        <p>รหัส</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="รหัส" required>
+        </div>
+      </div>
+
+      <h3>หน่วยงานผู้ออกใบสั่ง</h3>
+      <div class="row">
+        <p>ที่อยู่</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ที่อยู่" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <p>ชื่อผู้รับ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ชื่อผู้รับ" required>
+        </div>
+      </div>
+      <div class="row">
+        <p>ที่อยู่ผู้รับ</p>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="ที่อยู่ผู้รับ" required>
+        </div>
+      </div>
+
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">Continue to checkout</button>
+
+
+
+      <!--/div-->
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2020 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </form>
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+</body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
 </html>
